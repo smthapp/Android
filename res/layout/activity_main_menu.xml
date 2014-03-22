@@ -1,0 +1,165 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/cbg_iphone"
+    tools:context=".MainMenuActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="horizontal" >
+        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="horizontal" >
+        
+        <LinearLayout
+            android:layout_width="0dp"
+        	android:layout_height="match_parent"
+        	android:layout_gravity="center"
+        	android:layout_weight="1"
+        	android:gravity="center" >
+            
+            <Button
+                android:id="@+id/buttonSectionTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="pressBtnListBoard"
+                android:text="浏览版面" />
+            
+        </LinearLayout>
+  
+ 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center" >
+            
+            <Button
+                android:id="@+id/buttonMemberBoard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="pressBtnFav"
+                android:text="我的收藏" />
+            
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center" >
+            
+            <Button
+                android:id="@+id/buttonHotTopics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="pressBtnTop"
+                android:text="今日十大" />
+            
+        </LinearLayout>
+        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="horizontal" >
+        
+        
+        <LinearLayout
+            android:layout_width="0dp"
+        	android:layout_height="match_parent"
+        	android:layout_gravity="center"
+        	android:layout_weight="1"
+        	android:gravity="center" >
+            
+            <Button
+                android:id="@+id/buttonSectionTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="pressBtnSectionTop"
+                android:text="分区十大" />
+            
+        </LinearLayout>
+  
+        <LinearLayout
+            android:layout_width="0dp"
+        	android:layout_height="match_parent"
+        	android:layout_gravity="center"
+        	android:layout_weight="1"
+        	android:gravity="center" >
+            
+            <Button
+                android:id="@+id/buttonMessages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="pressBtnMessages"
+                android:text="我的消息" />
+            
+        </LinearLayout>
+  
+ 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center" >
+            
+            <Button
+                android:id="@+id/buttonMemberBoard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="pressBtnMemberBoard"
+                android:text="驻版列表" />
+            
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="horizontal" >
+        
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center" >
+            
+            <Button
+                android:id="@+id/buttonAppSetting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="pressBtnAppSetting"
+                android:text="系统设置" />
+            
+        </LinearLayout>
+        
+    </LinearLayout>
+    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="11"
+        android:orientation="horizontal" >
+        
+    </LinearLayout>
+    
+    
+</LinearLayout>

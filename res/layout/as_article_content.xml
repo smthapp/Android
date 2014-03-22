@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/darkgray"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/articlecontentas_button_reply"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/lightgray"
+        android:gravity="center"
+        android:text="回复" />
+    
+    <Button
+        android:id="@+id/articlecontentas_button_emailreply"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/lightgray"
+        android:gravity="center"
+        android:text="私信回复" />
+    
+    
+    <Button
+        android:id="@+id/articlecontentas_button_forward"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/lightgray"
+        android:gravity="center"
+        android:text="转寄给用户" />
+    
+    <Button
+        android:id="@+id/articlecontentas_button_cancel"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/lightgray"
+        android:gravity="center"
+        android:text="Cancel" />
+
+</LinearLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.newsmth.smth"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar" >
+        <activity
+            android:name="net.newsmth.smth.LoginBBSActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="net.newsmth.smth.MainMenuActivity"
+            android:label="@string/title_activity_main_menu" >
+        </activity>
+        <activity
+            android:name="net.newsmth.smth.BoardListActivity"
+            android:label="@string/title_activity_board_list" >
+        </activity>
+        <activity
+            android:name="net.newsmth.smth.ArticleListActivity"
+            android:label="@string/title_activity_article_list" >
+        </activity>
+        <activity
+            android:name="net.newsmth.smth.ArticleContentActivity"
+            android:label="@string/title_activity_article_content" >
+        </activity>
+        <activity
+            android:name="net.newsmth.smth.MessagesActivity"
+            android:label="@string/title_activity_messages" >
+        </activity>
+        <activity
+            android:name="net.newsmth.smth.AppSettingActivity"
+            android:label="@string/title_activity_app_setting" >
+        </activity>
+        <activity
+            android:name="net.newsmth.smth.ArticleEditActivity"
+            android:label="@string/title_activity_article_edit" >
+        </activity>
+    </application>
+
+</manifest>

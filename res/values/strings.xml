@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SMTH</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">你好</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="title_activity_board_list">BoardListActivity</string>
+    <string name="title_activity_article_list">ArticleListActivity</string>
+    <string name="title_activity_article_content">ArticleContentActivity</string>
+    <string name="title_activity_messages">MessagesActivity</string>
+    <string name="title_activity_app_setting">AppSettingActivity</string>
+    <string name="title_activity_article_edit">ArticleEditActivity</string>
+
+</resources>
