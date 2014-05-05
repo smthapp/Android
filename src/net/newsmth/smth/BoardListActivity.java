@@ -376,7 +376,7 @@ public class BoardListActivity extends AppActivity {
 					showArticleList(0, 0, dict.optString("id"), dict.optString("name"));
 				}
 			}else if(m_mode == 3){
-				showArticleList(1, dict.optInt("id"), null, null);
+				showArticleList(1, dict.optInt("id")+1, null, null);
 			}
 		}
 	}
