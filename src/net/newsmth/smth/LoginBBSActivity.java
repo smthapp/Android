@@ -19,22 +19,22 @@ import android.widget.LinearLayout;
 public class LoginBBSActivity extends AppActivity {
 	
 	//private
-	private String last_changelog;
-	private int notify_number;
-	private String notify_msg;
+	private String mLastChangelog;
+	private int mNotifyNumber;
+	private String mNotifyMessage;
 	
-	private String newversion;
+	private String mNewVersion;
 	
-	private int ret_newversion;
-	private int ret_pwd;
+	private int mRetNewVersion;
+	private int mRetPwd;
 	
-	private String m_strUser;
-	private String m_strPwd;
+	private String mStrUser;
+	private String mStrPwd;
 	
 	//android only
-	private EditText m_txtFldUser;
-	private EditText m_txtFldPwd;
-	private Activity this_activity;
+	private EditText mTxtFldUser;
+	private EditText mTxtFldPwd;
+	private Activity mActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,24 +42,24 @@ public class LoginBBSActivity extends AppActivity {
         setContentView(R.layout.activity_login_bbs);
         
         //android only
-        m_txtFldUser = (EditText) findViewById(R.id.m_txtFldUser);
-        m_txtFldPwd = (EditText) findViewById(R.id.m_txtFldPwd);
+        mTxtFldUser = (EditText) findViewById(R.id.m_txtFldUser);
+        mTxtFldPwd = (EditText) findViewById(R.id.m_txtFldPwd);
         
-        String username = appSetting.getLoginInfoUsr();
-        String password = appSetting.getLoginInfoPwd();
+        String userName = appSetting.getLoginInfoUsr();
+        String passWord = appSetting.getLoginInfoPwd();
         
-        if(username!=null && password!=null && !username.equals("") && !password.equals("")){
-        	m_txtFldUser.setText(username);
-        	m_txtFldPwd.setText(password);
+        if(userName!=null && passWord!=null && !userName.equals("") && !passWord.equals("")){
+        	mTxtFldUser.setText(userName);
+        	mTxtFldPwd.setText(passWord);
         }
         
-        this_activity = this;
+        mActivity = this;
         LinearLayout screen = (LinearLayout) findViewById(R.id.loginbbsView);
         screen.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                     if (v.getId() == R.id.loginbbsView) {
-                            InputMethodManager imm = (InputMethodManager)this_activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+                            InputMethodManager imm = (InputMethodManager)mActivity.getSystemService(Context.INPUT_METHOD_SERVICE);
                             imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                     }
             }
@@ -75,8 +75,8 @@ public class LoginBBSActivity extends AppActivity {
     }
     
     public void pressBtnClear(View v){
-    	m_txtFldUser.setText("");
-    	m_txtFldPwd.setText("");
+    	mTxtFldUser.setText("");
+    	mTxtFldPwd.setText("");
     	
     	appSetting.setLoginInfo("", "");
     }
@@ -111,10 +111,10 @@ public class LoginBBSActivity extends AppActivity {
         int min_major = dict.optInt("min_major");
         int min_minor = dict.optInt("min_minor");
         int min_rc    = dict.optInt("min_rc");
-        last_changelog = dict.optString("latest_changelog");
+        mLastChangelog = dict.optString("latest_changelog");
         
-        notify_number = dict.optInt("notify_number");
-        notify_msg = dict.optString("notify_msg");
+        mNotifyNumber = dict.optInt("notify_number");
+        mNotifyMessage = dict.optString("notify_msg");
 
         //app version
         String appVer = NSAppSetting.appVer;
@@ -130,7 +130,7 @@ public class LoginBBSActivity extends AppActivity {
         
         if((cur_major < latest_major) || (cur_major == latest_major && cur_minor < latest_minor) || (cur_major == latest_major && cur_minor == latest_minor && cur_rc < latest_rc)){
             
-            newversion = "" + latest_major + "." + latest_minor + "." + latest_rc;
+            mNewVersion = "" + latest_major + "." + latest_minor + "." + latest_rc;
             return 2;
         }
         return 1;
@@ -140,12 +140,12 @@ public class LoginBBSActivity extends AppActivity {
     
     private boolean checkInputText()
     {
-    	if(m_strUser.length() == 0){
-    		ret_newversion = -3;
+    	if(mStrUser.length() == 0){
+    		mRetNewVersion = -3;
     		return false;
     	}
-    	if(m_strPwd.length() == 0){
-    		ret_newversion = -4;
+    	if(mStrPwd.length() == 0){
+    		mRetNewVersion = -4;
     		return false;
     	}
     	return true;
@@ -153,11 +153,11 @@ public class LoginBBSActivity extends AppActivity {
     
     @Override
     public void parseContent(){
-    	ret_newversion = 0;
-    	ret_pwd = 0;
+    	mRetNewVersion = 0;
+    	mRetPwd = 0;
     	
-    	m_strUser = m_txtFldUser.getText().toString();
-    	m_strPwd = m_txtFldPwd.getText().toString();
+    	mStrUser = mTxtFldUser.getText().toString();
+    	mStrPwd = mTxtFldPwd.getText().toString();
     	
     	if(!checkInputText()){
     		//different with iOS, don't do dialog in this thread.
@@ -165,15 +165,15 @@ public class LoginBBSActivity extends AppActivity {
     		return;
     	}
     	
-    	notify_number = 0;
+    	mNotifyNumber = 0;
     	net_ops = 2;
     	
-    	ret_newversion = checkVersion();
-    	if(ret_newversion > 0){
-    		ret_pwd = net_smth.net_LoginBBS(m_strUser, m_strPwd);
+    	mRetNewVersion = checkVersion();
+    	if(mRetNewVersion > 0){
+    		mRetPwd = net_smth.net_LoginBBS(mStrUser, mStrPwd);
     	}
     	
-    	Log.d("SMTH", "login ret:" + ret_newversion + ret_pwd);
+    	Log.d("SMTH", "login ret:" + mRetNewVersion + mRetPwd);
     	m_bLoadRes = 1;
     }
     
@@ -183,8 +183,8 @@ public class LoginBBSActivity extends AppActivity {
     }
     
     private void show_notification(){
-    	if(notify_number > NSAppSetting.my_notify_number){
-			new AlertDialog.Builder(this).setTitle("通知").setMessage(notify_msg)
+    	if(mNotifyNumber > NSAppSetting.my_notify_number){
+			new AlertDialog.Builder(this).setTitle("通知").setMessage(mNotifyMessage)
     		.setPositiveButton("继续提示此条通知", new DialogInterface.OnClickListener() {  
                 @Override  
                 public void onClick(DialogInterface dialog,  
@@ -195,8 +195,8 @@ public class LoginBBSActivity extends AppActivity {
                 @Override  
                 public void onClick(DialogInterface dialog,  
                         int which) {  
-                    NSAppSetting.my_notify_number = notify_number;
-                    appSetting.appSettingChange("my_notify_number", String.valueOf(notify_number));
+                    NSAppSetting.my_notify_number = mNotifyNumber;
+                    appSetting.appSettingChange("my_notify_number", String.valueOf(mNotifyNumber));
                     
                     goContentView();
                 }
@@ -208,8 +208,8 @@ public class LoginBBSActivity extends AppActivity {
     }
     
     private void show_newversion(){
-    	if(ret_newversion == 2){
-			new AlertDialog.Builder(this).setTitle("应用有更新版本，建议升级").setMessage(last_changelog)
+    	if(mRetNewVersion == 2){
+			new AlertDialog.Builder(this).setTitle("应用有更新版本，建议升级").setMessage(mLastChangelog)
     		.setPositiveButton("继续提示此版本", new DialogInterface.OnClickListener() {  
                 @Override  
                 public void onClick(DialogInterface dialog,  
@@ -220,8 +220,8 @@ public class LoginBBSActivity extends AppActivity {
                 @Override  
                 public void onClick(DialogInterface dialog,  
                         int which) {  
-                    NSAppSetting.my_dismiss_version = newversion;
-                    appSetting.appSettingChange("dismiss_version", newversion);
+                    NSAppSetting.my_dismiss_version = mNewVersion;
+                    appSetting.appSettingChange("dismiss_version", mNewVersion);
                     
                     show_notification();
                 }
@@ -234,20 +234,20 @@ public class LoginBBSActivity extends AppActivity {
     
     @Override
     public void updateContent(){
-    	if(ret_newversion == -2){
+    	if(mRetNewVersion == -2){
     		new AlertDialog.Builder(this).setTitle("应用版本太低，请升级后重试")
     		.setPositiveButton("确定",null).setCancelable(false).create()  
             .show();
-    	}else if(ret_newversion == -3){
+    	}else if(mRetNewVersion == -3){
     		new AlertDialog.Builder(this).setTitle("账号为空，请输入.")
     		.setPositiveButton("确定",null).setCancelable(false).create()  
             .show();
-    	}else if(ret_newversion == -4){
+    	}else if(mRetNewVersion == -4){
     		new AlertDialog.Builder(this).setTitle("密码为空，请输入.")
     		.setPositiveButton("确定",null).setCancelable(false).create()  
             .show();
-    	}else if(ret_newversion > 0 && ret_pwd > 0){
-    		appSetting.setLoginInfo(m_strUser, m_strPwd);
+    	}else if(mRetNewVersion > 0 && mRetPwd > 0){
+    		appSetting.setLoginInfo(mStrUser, mStrPwd);
     		
     		//TODO: load friends list background
     		
